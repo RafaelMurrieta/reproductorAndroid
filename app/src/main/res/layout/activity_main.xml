@@ -12,9 +12,12 @@
         android:id="@+id/play"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/BiPlayCircleFill"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="473dp" />
+        android:background="@drawable/play"
+        android:onClick="PLayPause"
+        app:layout_constraintBottom_toTopOf="@+id/stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
 
     <ImageView
         android:id="@+id/cover"
@@ -30,48 +33,63 @@
         android:id="@+id/before"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/PepiconsPencilPreviousTrack"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="473dp" />
+        android:background="@drawable/before"
+        app:layout_constraintBottom_toTopOf="@+id/pause"
+        app:layout_constraintEnd_toStartOf="@+id/play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
 
     <Button
         android:id="@+id/next"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/PepiconsPencilNextTrack"
-        tools:layout_editor_absoluteX="290dp"
-        tools:layout_editor_absoluteY="473dp" />
+        android:background="@drawable/next"
+        android:onClick="siguiente"
+        app:layout_constraintBottom_toTopOf="@+id/repeat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/play"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
 
     <Button
         android:id="@+id/pause"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/MaterialSymbolsPauseCircle"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="575dp" />
+        android:background="@drawable/pause"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/stop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
 
     <Button
         android:id="@+id/stop"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/MaterialSymbolsStopCircleRounded"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="575dp" />
+        android:background="@drawable/stop"
+        android:onClick="stop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
 
     <Button
         android:id="@+id/repeat"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/WhhMediarepeat"
-        tools:layout_editor_absoluteX="290dp"
-        tools:layout_editor_absoluteY="575dp" />
+        android:background="@drawable/repeats"
+        android:onClick="repetir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stop"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
 
     <Button
         android:id="@+id/norepeat"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/WhhRepeatone"
-        tools:layout_editor_absoluteX="182dp"
-        tools:layout_editor_absoluteY="666dp" />
+        android:background="@drawable/norepeat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
