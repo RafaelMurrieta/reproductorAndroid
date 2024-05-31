@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/play"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/BiPlayCircleFill"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="473dp" />
+
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="270dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="132dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/blackalbum" />
+
+    <Button
+        android:id="@+id/before"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/PepiconsPencilPreviousTrack"
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="473dp" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/PepiconsPencilNextTrack"
+        tools:layout_editor_absoluteX="290dp"
+        tools:layout_editor_absoluteY="473dp" />
+
+    <Button
+        android:id="@+id/pause"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/MaterialSymbolsPauseCircle"
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="575dp" />
+
+    <Button
+        android:id="@+id/stop"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/MaterialSymbolsStopCircleRounded"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="575dp" />
+
+    <Button
+        android:id="@+id/repeat"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/WhhMediarepeat"
+        tools:layout_editor_absoluteX="290dp"
+        tools:layout_editor_absoluteY="575dp" />
+
+    <Button
+        android:id="@+id/norepeat"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/WhhRepeatone"
+        tools:layout_editor_absoluteX="182dp"
+        tools:layout_editor_absoluteY="666dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
