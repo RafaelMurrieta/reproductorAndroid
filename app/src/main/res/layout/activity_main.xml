@@ -8,14 +8,16 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/play"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/play"
+        android:backgroundTint="@color/white"
         android:onClick="PLayPause"
-        app:layout_constraintBottom_toTopOf="@+id/stop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cover" />
 
@@ -23,64 +25,110 @@
         android:id="@+id/cover"
         android:layout_width="270dp"
         android:layout_height="255dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blackalbum" />
+        app:srcCompat="@drawable/queenofthemurderscene" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/before"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/before"
+        android:backgroundTint="@color/white"
         android:onClick="before"
-        app:layout_constraintBottom_toTopOf="@+id/pause"
         app:layout_constraintEnd_toStartOf="@+id/play"
+        app:layout_constraintHorizontal_bias="0.709"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cover" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/next"
+        android:backgroundTint="@color/white"
         android:onClick="siguiente"
-        app:layout_constraintBottom_toTopOf="@+id/repeat"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/play"
         app:layout_constraintTop_toBottomOf="@+id/cover" />
 
-    <Button
-        android:id="@+id/pause"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/pause"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/stop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cover" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/stop"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/stop"
+        android:backgroundTint="@color/white"
         android:onClick="stop"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover"
+        app:layout_constraintVertical_bias="0.491" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/repeat"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/repeats"
+        android:backgroundTint="@color/white"
+        android:onClick="repetir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/likebtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/heartborder"
+        android:backgroundTint="@color/white"
+        android:onClick="liked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnvolume"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/volumen"
+        android:onClick="expandSeekBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="300dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/play"
+        android:max="100"
+        app:layout_constraintBottom_toTopOf="@+id/play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cover" />
 
-    <Button
-        android:id="@+id/repeat"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/repeats"
-        android:onClick="repetir"
+    <SeekBar
+        android:id="@+id/volumenBar"
+        android:layout_width="0.1dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="72dp"
+        android:max="100"
+        android:progress="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/stop"
-        app:layout_constraintTop_toBottomOf="@+id/cover" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
