@@ -74,6 +74,20 @@
         app:layout_constraintVertical_bias="0.491" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/random"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/random"
+        android:backgroundTint="@color/white"
+        android:onClick="shuffle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.709"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover"
+        app:layout_constraintVertical_bias="0.491" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/repeat"
         android:layout_width="50dp"
         android:layout_height="50dp"

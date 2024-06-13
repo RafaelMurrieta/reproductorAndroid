@@ -20,6 +20,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnplay_pause, btn_repetir, btnlike,btnvolume;
@@ -32,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     private boolean heartbol = false;
     private Handler handler = new Handler();
     private AudioManager audioManager;
+    private List<Integer> shuffleList;
+    private boolean isShuffle = false;
+    private int shufflePos = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,11 +169,13 @@ public class MainActivity extends AppCompatActivity {
             liberarMediaPlayer();
             inicializarMediaPlayer();
             posicion = 0;
+            shufflePos = 0; // Reset shuffle position
             btnplay_pause.setBackgroundResource(R.drawable.play);
             iv.setBackgroundResource(R.drawable.blackalbum);
             Toast.makeText(this, "Stop", Toast.LENGTH_LONG).show();
         }
     }
+
 
     private void liberarMediaPlayer() {
         for (int i = 0; i < vectormp.length; i++) {
@@ -175,6 +185,22 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void shuffle(View view) {
+        isShuffle = !isShuffle; // Toggle shuffle mode
+        if (isShuffle) {
+            Toast.makeText(this, "Shuffle Mode On", Toast.LENGTH_SHORT).show();
+            shuffleList = new ArrayList<>();
+            for (int i = 0; i < vectormp.length; i++) {
+                shuffleList.add(i);
+            }
+            Collections.shuffle(shuffleList);
+            shufflePos = shuffleList.indexOf(posicion); // Ensure the current song position is synchronized
+        } else {
+            Toast.makeText(this, "Shuffle Mode Off", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     public void repetir(View view) {
         if (repetir == 1) {
@@ -192,33 +218,37 @@ public class MainActivity extends AppCompatActivity {
 
     public void siguiente(View view) {
         btnlike.setBackgroundResource(R.drawable.heartborder);
-        if (posicion < vectormp.length - 1) {
-            vectormp[posicion].stop();
-            liberarMediaPlayer();
-            inicializarMediaPlayer();
-            posicion++;
-            vectormp[posicion].start();
-            setImageResource(posicion);
-            updateSeekBar();
+        vectormp[posicion].stop();
+        liberarMediaPlayer();
+        inicializarMediaPlayer();
+        if (isShuffle) {
+            shufflePos = (shufflePos + 1) % shuffleList.size();
+            posicion = shuffleList.get(shufflePos);
         } else {
-            Toast.makeText(this, "No hay mas canciones", Toast.LENGTH_LONG).show();
+            posicion = (posicion + 1) % vectormp.length;
         }
+        vectormp[posicion].start();
+        setImageResource(posicion);
+        updateSeekBar();
     }
 
     public void before(View view) {
         btnlike.setBackgroundResource(R.drawable.heartborder);
-        if (posicion > 0) {
-            vectormp[posicion].stop();
-            liberarMediaPlayer();
-            inicializarMediaPlayer();
-            posicion--;
-            vectormp[posicion].start();
-            setImageResource(posicion);
-            updateSeekBar();
+        vectormp[posicion].stop();
+        liberarMediaPlayer();
+        inicializarMediaPlayer();
+        if (isShuffle) {
+            shufflePos = (shufflePos - 1 + shuffleList.size()) % shuffleList.size();
+            posicion = shuffleList.get(shufflePos);
         } else {
-            Toast.makeText(this, "No hay canciones anteriores", Toast.LENGTH_LONG).show();
+            posicion = (posicion - 1 + vectormp.length) % vectormp.length;
         }
+        vectormp[posicion].start();
+        setImageResource(posicion);
+        updateSeekBar();
     }
+
+
     public void liked(View view){
         if (!heartbol){
             btnlike.setBackgroundResource(R.drawable.heart);
@@ -253,4 +283,5 @@ public class MainActivity extends AppCompatActivity {
         liberarMediaPlayer();
         handler.removeCallbacksAndMessages(null);
     }
+
 }
