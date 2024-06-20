@@ -5,26 +5,26 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bacground"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/play"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="108dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="92dp"
         android:background="@drawable/play"
         android:backgroundTint="@color/bluec"
         android:onClick="PLayPause"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cover" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageView
         android:id="@+id/cover"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -35,37 +35,36 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/before"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="108dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="92dp"
         android:background="@drawable/before"
         android:backgroundTint="@color/white"
         android:onClick="before"
         app:layout_constraintEnd_toStartOf="@+id/play"
-        app:layout_constraintHorizontal_bias="0.751"
+        app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cover" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="108dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="92dp"
         android:background="@drawable/next"
         android:backgroundTint="@color/white"
         android:onClick="siguiente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toEndOf="@+id/play"
-        app:layout_constraintTop_toBottomOf="@+id/cover" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/stop"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/stop"
-        android:backgroundTint="@color/bluec"
+        android:background="@drawable/phdotsthreeoutlineverticalbold"
+        android:backgroundTint="@color/orange"
         android:onClick="stop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,76 +75,76 @@
         android:id="@+id/random"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginBottom="140dp"
         android:background="@drawable/random"
-        android:backgroundTint="@color/bluec"
+        android:backgroundTint="@color/orange"
         android:onClick="shuffle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.131"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cover"
-        app:layout_constraintVertical_bias="0.425" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/repeat"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="116dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginBottom="140dp"
         android:background="@drawable/repeats"
         android:backgroundTint="@color/orange"
         android:onClick="repetir"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cover" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/likebtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="108dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/heartborder"
         android:backgroundTint="@color/orange"
         android:onClick="liked"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cover" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnvolume"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/volumen"
-        android:backgroundTint="@color/bluec"
+        android:backgroundTint="@color/orange"
         android:onClick="expandSeekBar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:layout_below="@id/play"
-        android:thumbTint="@color/cardview_light_background"
+        android:layout_marginTop="48dp"
         android:max="100"
-        app:layout_constraintBottom_toTopOf="@+id/play"
+        android:progressBackgroundTint="@android:color/white"
+        android:progressTint="@android:color/white"
+        android:thumbTint="@color/cardview_light_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cover"
-        app:layout_constraintVertical_bias="0.375" />
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
 
     <SeekBar
         android:id="@+id/volumenBar"
         android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="24dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="196dp"
         android:layout_marginBottom="52dp"
         android:max="100"
         android:progress="0"
-        android:rotation="270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -164,12 +163,11 @@
         android:id="@+id/timeafter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="28dp"
         android:text="00:00"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/repeat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        app:layout_constraintVertical_bias="0.342" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

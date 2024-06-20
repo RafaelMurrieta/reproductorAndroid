@@ -153,10 +153,14 @@ public class MainActivity extends AppCompatActivity {
         vectormp[8] = MediaPlayer.create(this, R.raw.mamasaid);
         vectormp[9] = MediaPlayer.create(this, R.raw.trapperunderice);
         vectormp[10] = MediaPlayer.create(this, R.raw.turnthepage);
-        for (MediaPlayer player : vectormp) {
+
+        for (int i = 0; i < vectormp.length; i++) {
+            MediaPlayer player = vectormp[i];
             player.setOnPreparedListener(mp -> seekBar.setMax(mp.getDuration()));
+            player.setOnCompletionListener(mp -> siguiente(null));
         }
     }
+
 
     public void expandSeekBar(View view) {
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) volumenBar.getLayoutParams();
@@ -264,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
         btnlike.setBackgroundResource(R.drawable.heartborder);
         btnplay_pause.setBackgroundResource(R.drawable.pause);
         vectormp[posicion].stop();
+        vectormp[posicion].reset();
         liberarMediaPlayer();
         inicializarMediaPlayer();
         if (isShuffle) {
@@ -271,7 +276,6 @@ public class MainActivity extends AppCompatActivity {
             do {
                 nuevaPosicion = (int) (Math.random() * vectormp.length);
             } while (nuevaPosicion == posicion);
-
             posicion = nuevaPosicion;
         } else {
             posicion = (posicion + 1) % vectormp.length;
@@ -280,6 +284,7 @@ public class MainActivity extends AppCompatActivity {
         setImageResource(posicion);
         updateSeekBar();
     }
+
 
     public void before(View view) {
         btnlike.setBackgroundResource(R.drawable.heartborder);
